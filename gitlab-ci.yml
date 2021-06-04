@@ -1,0 +1,13 @@
+test:
+    stage: test
+    script: 
+        -apt-get update -qy
+        -apt-get install -y python-dev python-pip
+        -pip install -r requirements.txt
+        -pip install pylint
+        -pip install coverage
+        -pylint main.py
+        -python test.py
+        -coverage run test.py
+        -coverage report -m
+        
